@@ -5,12 +5,34 @@
 ### Del 1
 - Skapa en abstrakt superklass (Car.java)
 - Volvo och Saab extends Car
+
 #### varför
-- mindre kodduplicering
-- gemensamma variabler
-- för och nackdel: type casting
+- Mindre kodduplicering
+- Gemensamma variabler
+- För och nackdel: type casting
 
 ### Del 2
- - getters bör vara public (I allmänhet)
- - setter bör vara public (I allmänhet)
- - hjälp
+- Getters bör vara public (I allmänhet)
+- Setter bör vara public (I allmänhet)
+- Hjälpmetoder bör vara private
+- Alla instansvariabler bör vara private
+- Gas och brake bör vara public
+
+## Uppgift 2
+
+### Del 1
+- Implement movable on the car superclass
+- Ändra ev. karaktären av bilen i varje subklass
+
+### Del 2
+- Skapa koordinater i Car klassen
+- implementera (med vektor?) movable metoder
+
+## Uppgift 3
+
+### Del 1
+- tar det då
+
+## Uppgift 4
+from canvas:
+
