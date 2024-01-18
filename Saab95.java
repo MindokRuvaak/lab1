@@ -33,7 +33,7 @@ public class Saab95 {
     public Color getColor() {
         return color;
     }
-
+// hej
     public void setColor(Color clr) {
         color = clr;
     }
