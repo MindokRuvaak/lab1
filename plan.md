@@ -35,4 +35,7 @@
 
 ## Uppgift 4
 from canvas:
+- Skapa tester och se så de fallerar på gammal kod (men som kommer funka om koden uppfyller nya krav)
+- fixa kod så att den följer nya specifikationer
+- testa gamla och nya tester och se så allt funkar
 
