@@ -1,7 +1,10 @@
-import java.awt.Color;
+import java.awt.*;
 
-public abstract class Car {
+public abstract class Car implements Movable {
 
+    protected Point position;
+    protected double directionAngel;
+    protected double[] direction;
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -32,7 +35,6 @@ public abstract class Car {
         return color;
     }
 
-    // hej
     public void setColor(Color clr) {
         color = clr;
     }
@@ -64,5 +66,25 @@ public abstract class Car {
     public void brake(double amount) {
         decrementSpeed(amount);
     }
+
+    public void move() {
+        position.move(position.x + (int) (currentSpeed*direction[0]), 
+                        position.y + (int) (currentSpeed*direction[1]));
+    }
+
+    public double[] getDirection() {
+        return direction;
+    }
+
+    public void turnLeft() {
+        directionAngel++;
+        direction = new double[] { Math.cos(directionAngel), Math.sin(directionAngel)};
+    }
+
+    public void turnRight() {
+        directionAngel--;
+        direction = new double[] { Math.cos(directionAngel), Math.sin(directionAngel)};
+    }
+
 
 }

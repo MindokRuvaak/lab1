@@ -25,4 +25,5 @@ public class Saab95 extends Car {
         }
         return enginePower * 0.01 * turbo;
     }
+
 }
