@@ -1,3 +1,5 @@
-**.vscode
+.vscode
 .idea
 lab1.iml
+
+lib
