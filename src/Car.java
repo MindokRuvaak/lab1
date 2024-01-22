@@ -17,6 +17,8 @@ public abstract class Car implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.direction = new double[]{0.0, 0.0};
+        this.position = new Point(0,0);
         stopEngine();
     }
 
@@ -87,5 +89,6 @@ public abstract class Car implements Movable {
         direction = new double[] { Math.cos(directionAngel), Math.sin(directionAngel)};
     }
 
+    public Point getPosition() {return this.position;}
 
 }
