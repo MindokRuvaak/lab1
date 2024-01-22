@@ -22,7 +22,7 @@ public class CarTest {
         double initSaabSpeed = testCar.getCurrentSpeed();
         testCar.brake(0.1);
         assertTrue(
-            initSaabSpeed > testCar.getCurrentSpeed() 
+                initSaabSpeed > testCar.getCurrentSpeed()
         );
     }
 
@@ -31,18 +31,17 @@ public class CarTest {
         double initSaabSpeed = testCar.getCurrentSpeed();
         testCar.gas(0.1);
         assertTrue(
-            initSaabSpeed < testCar.getCurrentSpeed() 
+                initSaabSpeed < testCar.getCurrentSpeed()
         );
     }
 
     @Test
     public void testGetColor() {
-        assertTrue(testCar.getColor() != null );
+        assertTrue(testCar.getColor() != null);
     }
 
     @Test
     public void testGetCurrentSpeed() {
-
     }
 
     @Test
