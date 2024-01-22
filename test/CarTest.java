@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.assertTrue;
 
+import java.awt.Color;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,22 +39,22 @@ public class CarTest {
 
     @Test
     public void testGetColor() {
-        assertTrue(testCar.getColor() != null );
+        assertTrue(testCar.getColor().getClass() == Color.class);
     }
 
     @Test
     public void testGetCurrentSpeed() {
-
+        assertTrue(Double.isFinite(testCar.getCurrentSpeed()));
     }
 
     @Test
     public void testGetDirection() {
-
+        assertTrue(Double.isFinite(testCar.getDirection()));
     }
 
     @Test
     public void testGetEnginePower() {
-
+        
     }
 
     @Test
