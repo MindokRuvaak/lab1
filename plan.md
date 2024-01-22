@@ -1,6 +1,6 @@
 # THE PLAN!
 
-## Uppgift 1
+## Uppgift 1 (Done!)
 
 ### Del 1
 - Skapa en abstrakt superklass (Car.java)
@@ -18,7 +18,7 @@
 - Alla instansvariabler bör vara private
 - Gas och brake bör vara public
 
-## Uppgift 2
+## Uppgift 2 (Done!)
 
 ### Del 1
 - Implement movable on the car superclass
