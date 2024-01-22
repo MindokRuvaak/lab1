@@ -24,18 +24,16 @@ public class CarTest {
 
     @Test
     public void testBrake() {
-        double initSaabSpeed = testCar.getCurrentSpeed();
+        double initSpeed = testCar.getCurrentSpeed();
         testCar.brake(0.1);
-        assertTrue(
-                initSaabSpeed > testCar.getCurrentSpeed());
+        assertTrue(initSpeed > testCar.getCurrentSpeed());
     }
 
     @Test
     public void testGas() {
-        double initSaabSpeed = testCar.getCurrentSpeed();
+        double initSpeed = testCar.getCurrentSpeed();
         testCar.gas(0.1);
-        assertTrue(
-                initSaabSpeed < testCar.getCurrentSpeed());
+        assertTrue(initSpeed < testCar.getCurrentSpeed());
     }
 
     @Test
