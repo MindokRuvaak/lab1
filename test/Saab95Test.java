@@ -1,19 +1,20 @@
 package test;
+
 import org.junit.Test;
 
 public class Saab95Test {
     @Test
-    void testSetTurboOff() {
+    public void testSetTurboOff() {
 
     }
 
     @Test
-    void testSetTurboOn() {
+    public void testSetTurboOn() {
 
     }
 
     @Test
-    void testSpeedFactor() {
+    public void testSpeedFactor() {
 
     }
 }
