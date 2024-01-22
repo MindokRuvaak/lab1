@@ -57,11 +57,13 @@ public class CarTest {
 
     @Test
     public void testGetNrDoors() {
-
+        int nrDoors = testCar.getNrDoors();
+        assertTrue(nrDoors == 2 || nrDoors == 4);
     }
 
     @Test
     public void testMove() {
+
 
     }
 
