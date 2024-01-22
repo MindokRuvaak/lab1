@@ -22,10 +22,6 @@ public abstract class Car implements Movable {
         this.direction = new double[]{Math.cos(directionAngle),Math.sin(directionAngle)};
         this.position = new Point2D.Double(0,0);
         stopEngine();
-<<<<<<< HEAD
-=======
-        position = new Point2D.Double(0, 0);
->>>>>>> b791244c0639abcab84abba0505d38b5ead93cbe
     }
 
     public int getNrDoors() {
