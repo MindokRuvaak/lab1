@@ -9,12 +9,14 @@ public class testingMain {
         Car saab = new Saab95();
         Car volvo = new Volvo240();
 
-        System.out.println("Saab95: x " + Arrays.toString(saab.getDirection())); // prints a null
+        System.out.println("Saab95: x " + saab.getDirection()); // prints a null
         saab.turnLeft();
-        System.out.println("Saab95: x " + Arrays.toString(saab.getDirection()));
+        System.out.println("Saab95: x " + saab.getDirection());
 
-        volvo.move(); // nullPointerException
-        System.out.println("Volvo40: x " + Arrays.toString(volvo.getDirection()));
+        volvo.startEngine();
+        volvo.move();
+        System.out.println(volvo.getCurrentSpeed());
+        System.out.println("Volvo40: x " + volvo.getDirection());
         System.out.println("Volvo 240 x " + volvo.getPosition());
     }
 }

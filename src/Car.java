@@ -1,11 +1,12 @@
 package src;
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 public abstract class Car implements Movable {
 
-    protected Point position;
-    protected double directionAngle;
-    protected double[] direction;
+    protected Point2D.Double position; // the position of the car
+    protected double directionAngle; // the current angle of the car in space
+    protected double[] direction; // cos and sin of directionAngle (in that order)
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -17,8 +18,9 @@ public abstract class Car implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        this.direction = new double[]{0.0, 0.0};
-        this.position = new Point(0,0);
+        this.directionAngle = 0.0;
+        this.direction = new double[]{Math.cos(directionAngle),Math.sin(directionAngle)};
+        this.position = new Point2D.Double(0,0);
         stopEngine();
     }
 
@@ -71,12 +73,12 @@ public abstract class Car implements Movable {
     }
 
     public void move() {
-        position.move(position.x + (int) (currentSpeed*direction[0]), 
-                        position.y + (int) (currentSpeed*direction[1]));
+        position.setLocation(position.getX() + currentSpeed*direction[0],
+                position.getY() + currentSpeed*direction[1]);
     }
 
-    public double[] getDirection() {
-        return direction;
+    public double getDirection() {
+        return directionAngle;
     }
 
     public void turnLeft() {
@@ -89,6 +91,6 @@ public abstract class Car implements Movable {
         direction = new double[] { Math.cos(directionAngle), Math.sin(directionAngle)};
     }
 
-    public Point getPosition() {return this.position;}
+    public Point2D.Double getPosition() {return this.position;}
 
 }
