@@ -1,5 +1,8 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
@@ -24,8 +27,7 @@ public class CarTest {
         double initSaabSpeed = testCar.getCurrentSpeed();
         testCar.brake(0.1);
         assertTrue(
-            initSaabSpeed > testCar.getCurrentSpeed() 
-        );
+                initSaabSpeed > testCar.getCurrentSpeed());
     }
 
     @Test
@@ -33,8 +35,7 @@ public class CarTest {
         double initSaabSpeed = testCar.getCurrentSpeed();
         testCar.gas(0.1);
         assertTrue(
-            initSaabSpeed < testCar.getCurrentSpeed() 
-        );
+                initSaabSpeed < testCar.getCurrentSpeed());
     }
 
     @Test
@@ -54,7 +55,7 @@ public class CarTest {
 
     @Test
     public void testGetEnginePower() {
-        
+        assertTrue(testCar.getEnginePower() > 0);
     }
 
     @Test
@@ -64,38 +65,49 @@ public class CarTest {
     }
 
     @Test
+    public void testGetPosition() {
+        assertNotNull(testCar.getPosition());
+    }
+
+    @Test
     public void testMove() {
-
-
+        double iniX = testCar.getPosition().x;
+        double iniY = testCar.getPosition().y;
+        testCar.gas(10);
+        testCar.move();
+        assertTrue(iniX != testCar.getPosition().x
+                || iniY != testCar.getPosition().y);
     }
 
     @Test
     public void testSetColor() {
-
-    }
-
-    @Test
-    public void testSpeedFactor() {
-
+        Color initColour = testCar.getColor();
+        testCar.setColor(initColour.darker());
+        assertNotEquals(initColour, testCar.getColor());
     }
 
     @Test
     public void testStartEngine() {
-
+        assertNotEquals(0, testCar.getCurrentSpeed(), 0.01);
     }
 
     @Test
     public void testStopEngine() {
-
+        testCar.stopEngine();
+        assertEquals(0, testCar.getCurrentSpeed(), 0.01);
     }
 
     @Test
     public void testTurnLeft() {
-
+        double initDir = testCar.getDirection();
+        testCar.turnLeft();
+        assertTrue(initDir < testCar.getDirection());
     }
 
     @Test
     public void testTurnRight() {
-
+        double initDir = testCar.getDirection();
+        testCar.turnRight();
+        assertTrue(initDir > testCar.getDirection());
     }
 }
