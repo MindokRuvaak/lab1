@@ -1,5 +1,5 @@
 package test;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class Saab95Test {
     @Test

@@ -18,6 +18,7 @@ public abstract class Car implements Movable {
         this.color = color;
         this.modelName = modelName;
         stopEngine();
+        position = new Point(0, 0);
     }
 
     public int getNrDoors() {

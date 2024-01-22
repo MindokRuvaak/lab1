@@ -1,85 +1,97 @@
 package test;
-import src.*;
+
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import src.*;
 
 public class CarTest {
-    Car testSaab;
-    Car testVolvo;
+
+    Car testCar;
+
     @Before
     public void init() {
-        testSaab = new Saab95();
-        testVolvo = new Volvo240();
+        testCar = new Saab95();
+        testCar.startEngine();
     }
 
     @Test
-    void testBrake() {
-
+    public void testBrake() {
+        double initSaabSpeed = testCar.getCurrentSpeed();
+        testCar.brake(0.1);
+        assertTrue(
+            initSaabSpeed > testCar.getCurrentSpeed() 
+        );
     }
 
     @Test
-    void testGas() {
-
+    public void testGas() {
+        double initSaabSpeed = testCar.getCurrentSpeed();
+        testCar.gas(0.1);
+        assertTrue(
+            initSaabSpeed < testCar.getCurrentSpeed() 
+        );
     }
 
     @Test
-    void testGetColor() {
-
+    public void testGetColor() {
+        assertTrue(testCar.getColor() != null );
     }
 
     @Test
-    void testGetCurrentSpeed() {
-
-    }
-
-    @Test
-    void testGetDirection() {
-
-    }
-
-    @Test
-    void testGetEnginePower() {
-
-    }
-
-    @Test
-    void testGetNrDoors() {
+    public void testGetCurrentSpeed() {
 
     }
 
     @Test
-    void testMove() {
+    public void testGetDirection() {
 
     }
 
     @Test
-    void testSetColor() {
+    public void testGetEnginePower() {
 
     }
 
     @Test
-    void testSpeedFactor() {
+    public void testGetNrDoors() {
 
     }
 
     @Test
-    void testStartEngine() {
+    public void testMove() {
 
     }
 
     @Test
-    void testStopEngine() {
+    public void testSetColor() {
 
     }
 
     @Test
-    void testTurnLeft() {
+    public void testSpeedFactor() {
 
     }
 
     @Test
-    void testTurnRight() {
+    public void testStartEngine() {
+
+    }
+
+    @Test
+    public void testStopEngine() {
+
+    }
+
+    @Test
+    public void testTurnLeft() {
+
+    }
+
+    @Test
+    public void testTurnRight() {
 
     }
 }

@@ -1,5 +1,5 @@
 package test;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class Volvo240Test {
     @Test
