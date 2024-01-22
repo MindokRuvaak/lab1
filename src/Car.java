@@ -4,7 +4,7 @@ import java.awt.*;
 public abstract class Car implements Movable {
 
     protected Point position;
-    protected double directionAngel;
+    protected double directionAngle;
     protected double[] direction;
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
@@ -80,13 +80,13 @@ public abstract class Car implements Movable {
     }
 
     public void turnLeft() {
-        directionAngel++;
-        direction = new double[] { Math.cos(directionAngel), Math.sin(directionAngel)};
+        directionAngle++;
+        direction = new double[] { Math.cos(directionAngle), Math.sin(directionAngle)};
     }
 
     public void turnRight() {
-        directionAngel--;
-        direction = new double[] { Math.cos(directionAngel), Math.sin(directionAngel)};
+        directionAngle--;
+        direction = new double[] { Math.cos(directionAngle), Math.sin(directionAngle)};
     }
 
     public Point getPosition() {return this.position;}
