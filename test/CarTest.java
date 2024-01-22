@@ -1,7 +1,18 @@
 package test;
+import src.*;
+
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
+    Car testSaab;
+    Car testVolvo;
+    @Before
+    public void init() {
+        testSaab = new Saab95();
+        testVolvo = new Volvo240();
+    }
+
     @Test
     void testBrake() {
 
