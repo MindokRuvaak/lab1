@@ -68,7 +68,7 @@ public abstract class Car implements Movable {
             incrementSpeed(amount);
         }
         else {
-            
+            throw new IllegalArgumentException();
         }
     }
 
