@@ -17,10 +17,10 @@ public class Saab95Test {
     @Test
     public void testSetTurboOn() {
         double initSpeed = testSaab.getCurrentSpeed();
-        testSaab.gas(10);
+        testSaab.gas(1);
         double gasWoTurbo = testSaab.getCurrentSpeed();
         testSaab.setTurboOn();
-        testSaab.gas(10);
+        testSaab.gas(1);
         double gasWithTurbo = testSaab.getCurrentSpeed();
         assertTrue((gasWoTurbo - initSpeed) < (gasWithTurbo - gasWoTurbo));
     }
