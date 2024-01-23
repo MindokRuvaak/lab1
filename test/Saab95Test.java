@@ -4,17 +4,18 @@ import org.junit.Before;
 import org.junit.Test;
 import src.*;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class Saab95Test {
     Saab95 testSaab = new Saab95();
+
     @Before
     public void init() {
         testSaab = new Saab95();
     }
+
     @Test
-    public void testSetTurboOn () {
+    public void testSetTurboOn() {
         double initSpeed = testSaab.getCurrentSpeed();
         testSaab.gas(10);
         double gasWoTurbo = testSaab.getCurrentSpeed();
@@ -23,7 +24,4 @@ public class Saab95Test {
         double gasWithTurbo = testSaab.getCurrentSpeed();
         assertTrue((gasWoTurbo - initSpeed) < (gasWithTurbo - gasWoTurbo));
     }
-    }
-
-
-
+}

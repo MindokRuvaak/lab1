@@ -111,20 +111,34 @@ public class CarTest {
     @Test
     public void throwGasBrakeThrowsException() {
         assertThrows(IllegalArgumentException.class,
-            () -> {
-            testCar.gas(2);
-        });
+                () -> {
+                    testCar.gas(2);
+                });
         assertThrows(IllegalArgumentException.class,
-            () -> {
-            testCar.gas(-2);
-        });
+                () -> {
+                    testCar.gas(-2);
+                });
         assertThrows(IllegalArgumentException.class,
-            () -> {
-            testCar.brake(2);
-        });
+                () -> {
+                    testCar.brake(2);
+                });
         assertThrows(IllegalArgumentException.class,
-            () -> {
-            testCar.brake(-2);
-        });
+                () -> {
+                    testCar.brake(-2);
+                });
     }
+
+    @Test
+    public void ensureCurrentSpeedAllowedValue() {
+        for (int i = 0; i < 100; i++) {
+            testCar.brake(1);
+        }
+        assertTrue(testCar.getCurrentSpeed() >= 0);
+
+        for (int i = 0; i < 100; i++) {
+            testCar.gas(1);
+        }
+        assertTrue(testCar.getCurrentSpeed() <= testCar.getEnginePower());
+    }
+
 }
