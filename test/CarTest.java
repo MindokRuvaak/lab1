@@ -3,6 +3,7 @@ package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
@@ -105,5 +106,25 @@ public class CarTest {
         double initDir = testCar.getDirection();
         testCar.turnRight();
         assertTrue(initDir > testCar.getDirection());
+    }
+
+    @Test
+    public void throwGasBrakeThrowsException() {
+        assertThrows(IllegalArgumentException.class,
+            () -> {
+            testCar.gas(2);
+        });
+        assertThrows(IllegalArgumentException.class,
+            () -> {
+            testCar.gas(-2);
+        });
+        assertThrows(IllegalArgumentException.class,
+            () -> {
+            testCar.brake(2);
+        });
+        assertThrows(IllegalArgumentException.class,
+            () -> {
+            testCar.brake(-2);
+        });
     }
 }
