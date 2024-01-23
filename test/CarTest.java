@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
+import java.awt.geom.Point2D;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -69,6 +70,7 @@ public class CarTest {
 
     @Test
     public void testMove() {
+        Point2D.Double initial = testCar.getPosition();
         double iniX = testCar.getPosition().x;
         double iniY = testCar.getPosition().y;
         testCar.gas(10);
