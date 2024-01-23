@@ -71,12 +71,7 @@ public class CarTest {
     @Test
     public void testMove() {
         Point2D.Double initial = testCar.getPosition();
-        // double iniX = testCar.getPosition().x;
-        // double iniY = testCar.getPosition().y;
-        // testCar.gas(10);
         testCar.move();
-        // assertTrue(iniX != testCar.getPosition().x
-        //         || iniY != testCar.getPosition().y);
         assertNotEquals(initial, testCar.getPosition());
     }
 
