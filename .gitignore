@@ -2,6 +2,6 @@
 .idea
 **.iml
 
-lib
-nah
-out
+/lib/
+/nah/
+/out/
