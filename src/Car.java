@@ -55,20 +55,24 @@ public abstract class Car implements Movable {
     protected abstract double speedFactor();
 
     private void incrementSpeed(double amount) {
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeed = Math.min(enginePower, getCurrentSpeed() + speedFactor() * amount);
     }
 
     private void decrementSpeed(double amount) {
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = Math.max(0, getCurrentSpeed() - speedFactor() * amount);
     }
 
-    // TODO fix this method according to lab pm
     public void gas(double amount) {
+        if (amount < 0 || 1 < amount) {
+            throw new IllegalArgumentException();
+        }
         incrementSpeed(amount);
     }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount) {
+        if (amount < 0 || 1 < amount) {
+            throw new IllegalArgumentException();
+        }
         decrementSpeed(amount);
     }
 
@@ -91,6 +95,6 @@ public abstract class Car implements Movable {
         direction = new double[] { Math.cos(directionAngle), Math.sin(directionAngle)};
     }
 
-    public Point2D.Double getPosition() {return this.position;}
+    public Point2D.Double getPosition() {return new Point2D.Double(this.position.x,this.position.y);}
 
 }
