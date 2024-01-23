@@ -55,25 +55,24 @@ public abstract class Car implements Movable {
     protected abstract double speedFactor();
 
     private void incrementSpeed(double amount) {
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeed = Math.min(enginePower, getCurrentSpeed() + speedFactor() * amount);
     }
 
     private void decrementSpeed(double amount) {
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = Math.max(0, getCurrentSpeed() - speedFactor() * amount);
     }
 
-    // TODO fix this method according to lab pm
     public void gas(double amount) {
-        if (0 <= amount && amount <= 1) {
-            incrementSpeed(amount);
-        }
-        else {
+        if (amount < 0 || 1 < amount) {
             throw new IllegalArgumentException();
         }
+        incrementSpeed(amount);
     }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount) {
+        if (amount < 0 || 1 < amount) {
+            throw new IllegalArgumentException();
+        }
         decrementSpeed(amount);
     }
 
