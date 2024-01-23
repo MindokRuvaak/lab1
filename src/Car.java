@@ -91,6 +91,6 @@ public abstract class Car implements Movable {
         direction = new double[] { Math.cos(directionAngle), Math.sin(directionAngle)};
     }
 
-    public Point2D.Double getPosition() {return this.position;}
+    public Point2D.Double getPosition() {return new Point2D.Double(this.position.x,this.position.y);}
 
 }
