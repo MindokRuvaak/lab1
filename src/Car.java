@@ -14,6 +14,9 @@ public abstract class Car implements Movable {
     protected Color color; // Color of the car
     protected String modelName; // The car model name
 
+    // gas, brake, move and turn only has effect if engine is on?
+    // protected boolean engineOn;
+
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
@@ -45,15 +48,26 @@ public abstract class Car implements Movable {
         color = clr;
     }
 
+    /* 
+     * start/stop engine only set boolean, engine needs to be on in order to 
+     * gas/break
+     */
+
+    // starting the engine sets the speed to 0.1
     public void startEngine() {
+        // engineOn = true; 
         currentSpeed = 0.1;
     }
 
+    // stopping the engine sets the speed to 0
     public void stopEngine() {
+        // engineOn =  false;
         currentSpeed = 0;
     }
 
+    // speed factor depends on car model
     protected abstract double speedFactor();
+
 
     private void incrementSpeed(double amount) {
         setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
@@ -63,14 +77,17 @@ public abstract class Car implements Movable {
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 
+    // current speed is not allowed to go above the engine power nor below 0 
     private void setCurrentSpeed(double newSpeed) {
         currentSpeed = Math.clamp(newSpeed, 0, enginePower);
     }
 
+    // gas and break is only allowed values within the span [0,1]
     public void gas(double amount) {
         if (amount < 0 || 1 < amount) {
             throw new IllegalArgumentException();
         }
+        // if (engienOn)
         incrementSpeed(amount);
     }
 
@@ -78,6 +95,7 @@ public abstract class Car implements Movable {
         if (amount < 0 || 1 < amount) {
             throw new IllegalArgumentException();
         }
+        // if (engienOn)
         decrementSpeed(amount);
     }
 
@@ -90,16 +108,22 @@ public abstract class Car implements Movable {
         return directionAngle;
     }
 
+    // turnspeed is currently arbitrarily set as 1
     public void turnLeft() {
-        directionAngle++;
-        direction = new double[] { Math.cos(directionAngle), Math.sin(directionAngle) };
+        turn(1);
     }
 
     public void turnRight() {
-        directionAngle--;
+        turn(-1);
+    }
+
+    private void turn(double angleDelta) {
+        directionAngle += angleDelta;
         direction = new double[] { Math.cos(directionAngle), Math.sin(directionAngle) };
     }
 
+    // returns a copy of the position, prevents the car positoin from being changed from 
+    // outside of the cars movement methods
     public Point2D.Double getPosition() {
         return new Point2D.Double(this.position.x, this.position.y);
     }
